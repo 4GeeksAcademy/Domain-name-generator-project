@@ -7,8 +7,7 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
-
-  setTimeout(function() {
+  
     let domains = {
       pronoun: ["the", "our", "my", "your", "their"],
       adj: ["great", "big", "small", "fast", "slow"],
@@ -16,12 +15,14 @@ window.onload = function() {
       extensions: [".com", ".net", ".org", ".io", ".co"]
     };
     let display = document.getElementById("bigList");
+    let domList = [];
+
 
     for (let i in domains.pronoun) {
       for (let j in domains.adj) {
         for (let t in domains.noun) {
           for (let f in domains.extensions) {
-            console.log(
+            domList.push(
               domains.pronoun[i] +
                 domains.adj[j] +
                 domains.noun[t] +
@@ -36,9 +37,11 @@ window.onload = function() {
           }
         }
       }
-    }
+    };
+    
+    console.groupCollapsed("All domains:");
+    domList.forEach(dom => console.log(dom));
     console.groupEnd();
-  }, 1000);
 
   console.log("Hello Rigo from the console!");
 };
